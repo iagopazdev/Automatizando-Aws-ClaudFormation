@@ -1,190 +1,113 @@
-# Automatizando-Aws-ClaudFormation
+# Automatizando a Infraestrutura com AWS CloudFormation
 
-# Implementando Infraestrutura Automatizada com AWS CloudFormation
+> Projeto educacional desenvolvido durante um desafio da DIO para praticar **Infraestrutura como Código (IaC)** na AWS.
 
-## Sobre o Projeto
+O objetivo é demonstrar como templates declarativos do AWS CloudFormation podem automatizar o provisionamento de recursos, reduzir tarefas manuais e padronizar ambientes.
 
-Este projeto foi desenvolvido durante o desafio da DIO com foco na implementação de Infraestrutura como Código (IaC) utilizando AWS CloudFormation.
+## Navegação
 
-O objetivo principal foi compreender como automatizar o provisionamento de infraestrutura na AWS através de templates declarativos, reduzindo erros manuais e garantindo a padronização dos ambientes.
+- [Visão geral](#visao-geral)
+- [Arquitetura](#arquitetura)
+- [Estrutura do repositório](#estrutura-do-repositorio)
+- [Exemplo de template](#exemplo-de-template)
+- [Como implantar](#como-implantar)
+- [Resultados e aprendizados](#resultados-e-aprendizados)
+- [Evidências](#evidencias)
+- [Referências](#referencias)
 
----
+## Visão geral
 
-## Conceitos Aplicados
+| Item | Descrição |
+|---|---|
+| **Plataforma** | Amazon Web Services (AWS) |
+| **Serviço** | AWS CloudFormation |
+| **Abordagem** | Infraestrutura como Código (IaC) |
+| **Formato do template** | YAML |
+| **Contexto** | Desafio educacional da DIO |
 
-- Infrastructure as Code (IaC)
-- AWS CloudFormation
-- Stack Management
-- Provisionamento Automatizado
-- Templates YAML
-- Versionamento com Git e GitHub
+### Conceitos praticados
 
----
+- Infrastructure as Code (IaC);
+- AWS CloudFormation e gerenciamento de stacks;
+- Provisionamento automatizado de recursos;
+- Templates declarativos em YAML;
+- Versionamento com Git e GitHub.
 
-## Arquitetura Implementada
+## Arquitetura
 
-A solução utiliza um template CloudFormation para automatizar a criação da infraestrutura.
-
-Fluxo:
+O template descreve os recursos desejados. O CloudFormation interpreta essa definição e os provisiona como parte de uma stack.
 
 ```text
-CloudFormation Template
-          │
-          ▼
-     AWS Stack
-          │
-          ▼
- Recursos Provisionados
+Template CloudFormation (YAML)
+              │
+              ▼
+       Stack na AWS
+              │
+              ▼
+     Recursos provisionados
 ```
 
----
-
-## Estrutura do Projeto
+## Estrutura do repositório
 
 ```text
-aws-cloudformation-dio
-│
+Automatizando-Aws-ClaudFormation/
 ├── README.md
-├── template.yaml
-├── docs
-└── images
+├── image.png
+├── image-1.png
+└── image-2.png
 ```
 
----
+## Exemplo de template
 
-## Template CloudFormation
-
-O template desenvolvido possui uma estrutura simples para fins educacionais.
+O trecho abaixo ilustra uma stack simples que declara um bucket Amazon S3. Para implantá-lo, salve o conteúdo em um arquivo YAML, por exemplo `template.yaml`.
 
 ```yaml
 AWSTemplateFormatVersion: '2010-09-09'
 Description: Stack de exemplo para laboratório DIO
 
 Resources:
-
   LabBucket:
-
     Type: AWS::S3::Bucket
-
     Properties:
       BucketName: !Sub dio-lab-${AWS::AccountId}
 ```
 
----
+## Como implantar
 
-## Implantação da Stack
+1. Acesse o serviço **AWS CloudFormation** no console da AWS.
+2. Selecione **Create stack** e, em seguida, **With new resources (standard)**.
+3. Faça upload do arquivo YAML com o template.
+4. Informe um nome para a stack, por exemplo `dio-cloudformation-lab`.
+5. Revise as configurações e avance até a criação da stack.
+6. Acompanhe o status até a conclusão da implantação.
 
-### Passo 1
+> **Atenção:** a criação de recursos pode gerar custos na AWS. Revise os recursos provisionados e remova a stack quando não precisar mais dela.
 
-Acessar o serviço CloudFormation.
+## Resultados e aprendizados
 
-### Passo 2
+Durante o laboratório, foram praticados:
 
-Selecionar:
+- Validação e organização de templates YAML;
+- Uso da seção `Resources` para declarar recursos;
+- Criação e gerenciamento de stacks;
+- Atenção às permissões necessárias na AWS;
+- Uso do GitHub para documentar e versionar um projeto de infraestrutura.
 
-```text
-Create Stack
-With new resources
-```
-
-### Passo 3
-
-Realizar upload do template YAML.
-
-### Passo 4
-
-Definir nome da Stack.
-
-Exemplo:
-
-```text
-dio-cloudformation-lab
-```
-
-### Passo 5
-
-Executar a criação dos recursos.
-
----
-
-## Resultados Obtidos
-
-Após a implantação automática foi possível observar:
-
-- Criação da Stack com sucesso;
-- Validação do template;
-- Gerenciamento centralizado dos recursos;
-- Facilidade para replicação do ambiente.
-
----
-
-## Benefícios do CloudFormation
-
-### Padronização
-
-Mantém a infraestrutura consistente entre ambientes.
-
-### Automação
-
-Reduz atividades manuais.
-
-### Escalabilidade
-
-Facilita criação de novos ambientes.
-
-### Controle de Versão
-
-Permite armazenar a infraestrutura diretamente em repositórios Git.
-
----
-
-## Desafios Encontrados
-
-Durante a execução do laboratório foram observados alguns pontos importantes:
-
-- Necessidade de atenção à identação do YAML;
-- Entendimento da estrutura Resources;
-- Gerenciamento de permissões AWS;
-- Validação do template antes da implantação.
-
----
-
-## Aprendizados
-
-Este desafio permitiu consolidar conhecimentos sobre:
-
-- Infraestrutura como Código;
-- Automação em ambientes Cloud;
-- Boas práticas de documentação técnica;
-- Utilização do GitHub como portfólio técnico.
-
----
+O CloudFormation também ajuda a manter ambientes consistentes, automatizar tarefas repetitivas e facilitar a replicação da infraestrutura.
 
 ## Evidências
 
-Adicionar prints nesta seção.
+As imagens disponíveis no repositório podem ser consultadas abaixo:
 
-### Criação da Stack
-
-![Stack](images/stack-create.png)
-
-### Recursos Provisionados
-
-![Recursos](images/resources-created.png)
-
-### Console CloudFormation
-
-![Console](images/cloudformation-console.png)
-
----
+- [Imagem 1](image.png)
+- [Imagem 2](image-1.png)
+- [Imagem 3](image-2.png)
 
 ## Referências
 
-- AWS CloudFormation Documentation
-- AWS Well-Architected Framework
-- Documentação oficial da DIO
-
----
+- [AWS CloudFormation — documentação oficial](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html)
+- [AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html)
+- Materiais da formação AWS da DIO.
 
 ## Autor
 
